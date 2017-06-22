@@ -1,7 +1,7 @@
 package = "yaml"
 version = "1.1.2-1"
 source = {
-  url = 'git://github.com/lubyk/yaml',
+  url = 'git://github.com/zotovsa/luatest',
   tag = 'REL-1.1.2',
   dir = 'yaml',
 }
