@@ -896,7 +896,7 @@ end
 
 function _M.do_request(self, uri1, host1, port1, timeout1, trycount1)
 
-  local uri = "/hello";
+  local uri = "/hello"
   local host = "failingapp"
   local port = 8080
   local timeout = 3
@@ -906,6 +906,8 @@ function _M.do_request(self, uri1, host1, port1, timeout1, trycount1)
   ngx_log(ngx_ERR, uri)
   ngx_log(ngx_DEBUG, uri)
 
+  self:set_timeout(100)
+
 
   -- local http = require "resty.http"
   -- local httpc = http.new()
@@ -913,12 +915,12 @@ function _M.do_request(self, uri1, host1, port1, timeout1, trycount1)
   local i = 0
   while i < trycount do
     i = i + 1
-    self:set_timeout(timeout)
-    local ok, err = self:connect(host, port)
+    self:set_timeout(200)
+    local ok, err = self:connect("failingapp", 8080)
     if not ok then
       return
     end
-    self:set_timeout(timeout)
+    self:set_timeout(200)
     local ok, err = self:proxy_request()
     if ok.status == 200 then
       self:proxy_response(ok)
