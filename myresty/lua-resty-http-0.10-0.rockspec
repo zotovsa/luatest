@@ -8,7 +8,7 @@ source = {
 
 description = {
    summary = "Lua HTTP client cosocket driver for OpenResty / ngx_lua.",
-   homepage = "https://github.com/zotovsa/luatest/lua-resty-http",
+   homepage = "https://github.com/zotovsa/luatest/myresty",
    license = "2-clause BSD",
    maintainer = "test <james@pintsized.co.uk>"
 }
@@ -20,8 +20,8 @@ dependencies = {
 build = {
    type = "builtin",
    modules = {
-      ["lua.utils"] = "lua-resty-http/lib/resty/lua_utils.lua",
-      ["resty.http"] = "lua-resty-http/lib/resty/http.lua",
-      ["resty.http_headers"] = "lua-resty-http/lib/resty/http_headers.lua"
+      ["lua.utils"] = "myresty/lib/resty/lua_utils.lua",
+      ["resty.http"] = "myresty/lib/resty/http.lua",
+      ["resty.http_headers"] = "myresty/lib/resty/http_headers.lua"
    }
 }
