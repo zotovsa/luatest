@@ -894,13 +894,13 @@ function _M.proxy_response(self, response, chunksize)
     until not chunk
 end
 
-function _M.do_request(self, uri, host, port, timeout, trycount)
+function _M.do_request(self, uri1, host1, port1, timeout1, trycount1)
 
-   local uri = "/hello";
-   local host = "failingapp"
-   local port = 8080
-   local timeout = 3
-   local trycount = 4
+  local uri = "/hello";
+  local host = "failingapp"
+  local port = 8080
+  local timeout = 3
+  local trycount = 4
 
   ngx.req.set_uri(uri)
   ngx_log(ngx_ERR, uri)
