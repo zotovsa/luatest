@@ -899,15 +899,16 @@ function _M.doRequest(self, uri, host, port, timeout, trycount)
   -- local uri = "/hello";
   -- local host = "failingapp"
   -- local port = 8080
-  -- local timeout = 3
+   local timeout = 3
    local trycount = 4
 
   ngx.req.set_uri(uri)
   ngx_log(ngx_ERR, uri)
+  ngx_log(ngx_DEBUG, uri)
+
 
   -- local http = require "resty.http"
   -- local httpc = http.new()
-
 
   local i = 0
   while i < trycount do
