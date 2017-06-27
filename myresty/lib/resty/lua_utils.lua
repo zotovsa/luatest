@@ -30,5 +30,4 @@ function _M.generateId(self, machineNumber)
 end
 
 
-
 return _M

@@ -911,24 +911,22 @@ function _M.doRequest(self, uri, host, port, timeout, trycount)
   local i = 0
   while i < trycount do
     i = i + 1
-    httpc:set_timeout(timeout)
-    local ok, err = httpc:connect(host, port)
+    self:set_timeout(timeout)
+    local ok, err = self:connect(host, port)
     if not ok then
-      ngx.log(ngx.ERR, err)
       return
     end
-    httpc:set_timeout(timeout)
-    local ok1, err1 = httpc:proxy_request()
-    if ok1.status == 200 then
-      httpc:proxy_response(ok1)
+    self:set_timeout(timeout)
+    local ok, err = self:proxy_request()
+    if ok.status == 200 then
+      self:proxy_response(ok)
       return
     end
-    if(i >= trycount) then
-      httpc:proxy_response(ok1)
+    if (i >= trycount) then
+      self:proxy_response(ok)
     end
   end
-  httpc:set_keepalive()
-
+  self:set_keepalive()
 end
 
 return _M
