@@ -894,11 +894,11 @@ function _M.proxy_response(self, response, chunksize)
     until not chunk
 end
 
-function _M.doRequest(self, uri, host, port, timeout, trycount)
+function _M.do_request(self, uri, host, port, timeout, trycount)
 
-  -- local uri = "/hello";
-  -- local host = "failingapp"
-  -- local port = 8080
+   local uri = "/hello";
+   local host = "failingapp"
+   local port = 8080
    local timeout = 3
    local trycount = 4
 
